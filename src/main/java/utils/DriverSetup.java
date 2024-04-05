@@ -29,6 +29,8 @@ public class DriverSetup extends ConfigReader {
      */
     public static AndroidDriver driver;
 
+    protected Helpers helpers;
+
     protected CookieSettingPage cookieSettingPage;
     protected SignInPage signInPage;
     protected MainPage mainPage;
@@ -64,6 +66,8 @@ public class DriverSetup extends ConfigReader {
         
         // Wait for specified amount of time when trying to find element
         driver.manage().timeouts().implicitlyWait(globalTimeout);
+
+        helpers = new Helpers();
 
         // Initialize Pages here
         cookieSettingPage = new CookieSettingPage(driver);
