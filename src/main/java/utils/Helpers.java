@@ -7,6 +7,8 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.remote.RemoteWebElement;
+
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -99,5 +101,17 @@ public class Helpers {
         Point location = el.getLocation();
         Dimension size = el.getSize();
         return new Point(location.x + size.getWidth() / 2, location.y + size.getHeight() / 2);
+    }
+
+    /**
+     * Clicks on a given element multiple times.
+     *
+     * @param element The element to be clicked multiple times.
+     * @param times   The number of times to click the element.
+     */
+    public void clickElementMultipleTimes(RemoteWebElement element, int times){
+        for(int i = 0; i<times; i++){
+            element.click();
+        }
     }
 }
