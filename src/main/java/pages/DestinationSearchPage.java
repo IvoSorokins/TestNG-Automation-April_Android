@@ -20,7 +20,7 @@ public class DestinationSearchPage {
     @AndroidFindBy(id = "com.booking:id/facet_with_bui_free_search_booking_header_toolbar_content")
     private RemoteWebElement headerSearchBarTextBox;
 
-    @AndroidFindBy(xpath="//android.view.View/android.widget.TextView[@text=\"Skopje\"]]")
+    @AndroidFindBy(xpath = "//android.view.View/android.widget.TextView[@text=\"Skopje\"]")
     private RemoteWebElement searchResult;
 
     public DestinationSearchPage(io.appium.java_client.android.AndroidDriver driver) {

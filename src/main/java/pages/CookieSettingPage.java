@@ -19,7 +19,7 @@ public class CookieSettingPage {
     @AndroidFindBy(id = "com.booking:id/gdpr_consent_heading")
     private RemoteWebElement cookieTitle;
 
-    @AndroidFindBy(id="com.booking:id/bt_accept")
+    @AndroidFindBy(id = "com.booking:id/bt_accept")
     private RemoteWebElement acceptButton;
 
     public CookieSettingPage(AndroidDriver driver) {

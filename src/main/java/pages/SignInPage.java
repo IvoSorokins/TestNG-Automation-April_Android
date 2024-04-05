@@ -16,7 +16,7 @@ public class SignInPage {
     @AndroidFindBy(accessibility = "Navigate up")
     private RemoteWebElement xbutton;
 
-    @AndroidFindBy(xpath="//android.widget.TextView[@text=\"Sign in for easier access to your trip details\"]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Sign in for easier access to your trip details\"]")
     private RemoteWebElement signInTitle;
 
 
