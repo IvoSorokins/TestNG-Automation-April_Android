@@ -15,5 +15,12 @@ public class TestAndroidOne extends DriverSetup {
     public void testAndroidOne(){
 
         Assert.assertTrue(cookieSettingPage.cookieSettingPageLoaded(), "Cookie Setting page is not loaded");
+
+        cookieSettingPage.clickAcceptButton();
+
+        Assert.assertTrue(signInPage.signInPageLoaded(), "Sign In page is loaded");
+
+        signInPage.clickXButton();
+
     }
 }
