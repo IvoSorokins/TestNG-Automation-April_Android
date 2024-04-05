@@ -3,7 +3,7 @@
 This README file provides a description of the TestNG automation project for both iOS and Android tests.
 
 ## Android Tests:
-### Tests Android 1:
+### Test Android 1:
 1. Start the **Booking** application and continue without sign in.
 2. Select **Skopje** as destination.
 3. Select 24 - 28 April as **date**.
@@ -24,7 +24,7 @@ This README file provides a description of the TestNG automation project for bot
 
 <br>
 
-### Tests Android 2:
+### Test Android 2:
 1. Start the **Booking** application and continue without sign in.
 2. Navigate to Sign in tab.
 3. Click on Genius loyalty program.
