@@ -30,9 +30,9 @@ public class TestAndroidOne extends DriverSetup {
 
         destinationSearchPage.enterDestination("Skopje");
 
-        Assert.assertEquals(destinationSearchPage.getSearchResults(),"Skopje", "Search results are correct");
+        destinationSearchPage.clickSearchResults();
 
-
+        Assert.assertTrue(selectDatePage.mainPageLoaded(),"Select Dates page is loaded");
 
 
 
