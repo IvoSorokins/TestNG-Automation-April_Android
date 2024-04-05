@@ -2,7 +2,7 @@ package utils;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.ios.IOSDriver;
+
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.Platform;
@@ -10,15 +10,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Listeners;
-import pages.CookieSettingPage;
-import pages.SignInPage;
+import pages.*;
 
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-
-import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 import static utils.GlobalVariables.globalTimeout;
 
 /**
@@ -34,6 +31,8 @@ public class DriverSetup extends ConfigReader {
 
     protected CookieSettingPage cookieSettingPage;
     protected SignInPage signInPage;
+    protected MainPage mainPage;
+    protected DestinationSearchPage destinationSearchPage;
 
     /**
      * Sets up the Appium driver before each test method
@@ -68,6 +67,8 @@ public class DriverSetup extends ConfigReader {
         // Initialize Pages here
         cookieSettingPage = new CookieSettingPage(driver);
         signInPage = new SignInPage(driver);
+        mainPage = new MainPage(driver);
+        destinationSearchPage = new DestinationSearchPage(driver);
     }
 
     /**

@@ -22,5 +22,19 @@ public class TestAndroidOne extends DriverSetup {
 
         signInPage.clickXButton();
 
+        Assert.assertTrue(mainPage.mainPageLoaded(), "Main page is loaded");
+
+        mainPage.clickDestinationButton();
+
+        Assert.assertTrue(destinationSearchPage.destinationSearchPageLoaded(), "Destination Search page is loaded");
+
+        destinationSearchPage.enterDestination("Skopje");
+
+        Assert.assertEquals(destinationSearchPage.getSearchResults(),"Skopje", "Search results are correct");
+
+
+
+
+
     }
 }
