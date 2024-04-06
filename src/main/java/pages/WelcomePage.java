@@ -26,7 +26,7 @@ public class WelcomePage {
     }
 
     @Step("Welcome page is loaded")
-    public boolean signInPageLoaded() {
+    public boolean welcomePageLoaded() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(signInTitle)).isDisplayed();
     }
 

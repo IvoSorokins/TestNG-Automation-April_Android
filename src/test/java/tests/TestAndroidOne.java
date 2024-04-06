@@ -19,7 +19,7 @@ public class TestAndroidOne extends DriverSetup {
         // 1.Start the Booking application and continue without sign in
         Assert.assertTrue(cookieSettingPage.cookieSettingPageLoaded(), "Cookie Setting page is not loaded");
         cookieSettingPage.clickAcceptButton();
-        Assert.assertTrue(welcomePage.signInPageLoaded(), "Welcome page is not loaded");
+        Assert.assertTrue(welcomePage.welcomePageLoaded(), "Welcome page is not loaded");
         welcomePage.clickXButton();
         Assert.assertTrue(mainSearchPage.mainSearchPageLoaded(), "Main Search page is not loaded");
 
