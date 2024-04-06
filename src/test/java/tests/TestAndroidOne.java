@@ -70,6 +70,8 @@ public class TestAndroidOne extends DriverSetup {
 
         // 12. Click on Sign in tab and validate that user is not logged in.
         bottomNavigationBar.clickSignInButton();
+        Assert.assertTrue(signInPage.signInPageLoaded(), "Sign In page is not loaded");
+        Assert.assertTrue(signInPage.validateSignInOrCreateAccount(), "Sign In page is not loaded");
 
         // 13. Scroll down to and click Settings.
         // 14. Click Currency.
