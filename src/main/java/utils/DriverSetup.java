@@ -40,6 +40,7 @@ public class DriverSetup extends ConfigReader {
     protected BottomNavigationBar bottomNavigationBar;
     protected SavedPage savedPage;
     protected SignInPage signInPage;
+    protected SettingsPage settingsPage;
 
     /**
      * Sets up the Appium driver before each test method
@@ -81,6 +82,7 @@ public class DriverSetup extends ConfigReader {
         bottomNavigationBar = new BottomNavigationBar(driver);
         savedPage = new SavedPage(driver);
         signInPage = new SignInPage(driver);
+        settingsPage = new SettingsPage(driver);
     }
 
     /**

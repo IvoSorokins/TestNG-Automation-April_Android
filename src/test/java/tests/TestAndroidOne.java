@@ -78,10 +78,13 @@ public class TestAndroidOne extends DriverSetup {
         // 13. Scroll down to and click Settings.
         helpers.swipeVertically(driver, Helpers.Directions.UP);
         signInPage.clickSettingsOption();
+        Assert.assertTrue(settingsPage.settingsPageLoaded(), "Settings page is not loaded");
 
         // 14. Click Currency.
+        settingsPage.clickCurrency();
 
         // 15. Change Currency to Euro.
+
         // 16. Validate that Settings Currency is changed now to Euro.
         // 17. Click on Privacy Policy and validate that Privacy and Cookies policy is open.
     }
