@@ -4,7 +4,7 @@ import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.DriverSetup;
-
+import utils.Helpers;
 
 
 @Epic("Android Tests")
@@ -67,12 +67,13 @@ public class TestAndroidOne extends DriverSetup {
 
         // 11. Go back to the search page.
         savedPage.clickBack();
+        bottomNavigationBar.clickSearchButton();
         Assert.assertTrue(mainSearchPage.mainSearchPageLoaded(), "Main Search page is not loaded");
 
         // 12. Click on Sign in tab and validate that user is not logged in.
         bottomNavigationBar.clickSignInButton();
         Assert.assertTrue(signInPage.signInPageLoaded(), "Sign In page is not loaded");
-        Assert.assertTrue(signInPage.validateSignInOrCreateAccount(), "Sign In page is not loaded");
+        Assert.assertTrue(signInPage.validateSignInOrCreateAccount(), "User is not Sign Out");
 
         // 13. Scroll down to and click Settings.
         // 14. Click Currency.
