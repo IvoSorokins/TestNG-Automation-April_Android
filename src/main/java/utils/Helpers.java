@@ -107,10 +107,10 @@ public class Helpers {
      * Clicks on a given element multiple times.
      *
      * @param element The element to be clicked multiple times.
-     * @param times   The number of times to click the element.
+     * @param clicks   The number of times to click the element.
      */
-    public void clickElementMultipleTimes(RemoteWebElement element, int times){
-        for(int i = 0; i<times; i++){
+    public static void clickElementMultipleTimes(RemoteWebElement element, int clicks){
+        for(int i = 0; i< clicks; i++){
             element.click();
         }
     }
