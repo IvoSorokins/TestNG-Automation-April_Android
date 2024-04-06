@@ -82,6 +82,8 @@ public class TestAndroidOne extends DriverSetup {
 
         // 14. Click Currency.
         settingsPage.clickCurrency();
+        Assert.assertTrue(currencyPage.currencyPageLoaded(), "Currency page is not loaded");
+
 
         // 15. Change Currency to Euro.
 

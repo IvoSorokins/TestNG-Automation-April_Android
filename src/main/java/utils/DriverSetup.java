@@ -41,6 +41,7 @@ public class DriverSetup extends ConfigReader {
     protected SavedPage savedPage;
     protected SignInPage signInPage;
     protected SettingsPage settingsPage;
+    protected CurrencyPage currencyPage;
 
     /**
      * Sets up the Appium driver before each test method
@@ -83,6 +84,7 @@ public class DriverSetup extends ConfigReader {
         savedPage = new SavedPage(driver);
         signInPage = new SignInPage(driver);
         settingsPage = new SettingsPage(driver);
+        currencyPage = new CurrencyPage(driver);
     }
 
     /**
