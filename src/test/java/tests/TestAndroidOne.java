@@ -19,8 +19,8 @@ public class TestAndroidOne extends DriverSetup {
         // 1.Start the Booking application and continue without sign in
         Assert.assertTrue(cookieSettingPage.cookieSettingPageLoaded(), "Cookie Setting page is not loaded");
         cookieSettingPage.clickAcceptButton();
-        Assert.assertTrue(signInPage.signInPageLoaded(), "Sign In page is not loaded");
-        signInPage.clickXButton();
+        Assert.assertTrue(welcomePage.signInPageLoaded(), "Welcome page is not loaded");
+        welcomePage.clickXButton();
         Assert.assertTrue(mainSearchPage.mainSearchPageLoaded(), "Main Search page is not loaded");
 
         // 2.Select Skopje as destination
@@ -68,8 +68,9 @@ public class TestAndroidOne extends DriverSetup {
         savedPage.clickBack();
         Assert.assertTrue(mainSearchPage.mainSearchPageLoaded(), "Main Search page is not loaded");
 
-
         // 12. Click on Sign in tab and validate that user is not logged in.
+        bottomNavigationBar.clickSignInButton();
+
         // 13. Scroll down to and click Settings.
         // 14. Click Currency.
         // 15. Change Currency to Euro.

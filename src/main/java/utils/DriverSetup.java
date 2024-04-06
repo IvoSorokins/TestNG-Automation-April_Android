@@ -33,7 +33,7 @@ public class DriverSetup extends ConfigReader {
     protected Helpers helpers;
 
     protected CookieSettingPage cookieSettingPage;
-    protected SignInPage signInPage;
+    protected WelcomePage welcomePage;
     protected MainSearchPage mainSearchPage;
     protected DestinationSearchPage destinationSearchPage;
     protected BookingSearchPage bookingSearchPage;
@@ -74,7 +74,7 @@ public class DriverSetup extends ConfigReader {
 
         // Initialize Pages here
         cookieSettingPage = new CookieSettingPage(driver);
-        signInPage = new SignInPage(driver);
+        welcomePage = new WelcomePage(driver);
         mainSearchPage = new MainSearchPage(driver);
         destinationSearchPage = new DestinationSearchPage(driver);
         bookingSearchPage = new BookingSearchPage(driver);
