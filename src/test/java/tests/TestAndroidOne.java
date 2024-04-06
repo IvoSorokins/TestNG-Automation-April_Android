@@ -28,7 +28,7 @@ public class TestAndroidOne extends DriverSetup {
         Assert.assertTrue(destinationSearchPage.destinationSearchPageLoaded(), "Destination Search page is not loaded");
         destinationSearchPage.enterDestination("Skopje");
         destinationSearchPage.selectDestination("Skopje");
-        Assert.assertTrue(mainSearchPage.mainSearchPageWithSliderLoaded(), "Main Search page is not loaded");
+        Assert.assertTrue(mainSearchPage.mainSearchPageWithSliderLoaded(), "Main Search page with slider is not loaded");
 
         // 3.Select 24 - 28 April as date
         mainSearchPage.clickOnCalendarTwentyFourthApril();
