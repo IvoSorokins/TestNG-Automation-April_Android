@@ -68,7 +68,7 @@ public class StaysPage {
     @Step("Clicked on Room and People Button on Accommodation Box")
     public void clickRoomPeopleButton(){roomPeopleButton.click();}
 
-    @Step("Clicked on Search")
+    @Step("Clicked on Search on Accommodation Box")
     public void clickSearchButton(){searchButton.click();}
 
 
@@ -84,10 +84,10 @@ public class StaysPage {
 
 
     // Actions with Room and People Slider
-    @Step("Increased Room count")
-    public void increaseRooms() {increaseRooms.click();}
-    @Step("Increased Adult Count")
-    public void increaseAdults () {increaseAdults.click();}
+    @Step("Clicked on '+' to increased Room count")
+    public void clickIncreaseRooms() {increaseRooms.click();}
+    @Step("Clicked on '+' Increased Adult Count")
+    public void clickIncreaseAdults () {increaseAdults.click();}
     @Step("Clicked on Apply Button")
     public void clickApplyButton () {applyButton.click();}
 

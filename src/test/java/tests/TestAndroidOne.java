@@ -19,13 +19,13 @@ public class TestAndroidOne extends DriverSetup {
         // 1.Start the Booking application and continue without sign in
         Assert.assertTrue(cookieSettingPage.cookieSettingPageLoaded(), "Cookie Setting page is not loaded");
         cookieSettingPage.clickAcceptButton();
-        Assert.assertTrue(signInPage.signInPageLoaded(), "Sign In page is loaded");
+        Assert.assertTrue(signInPage.signInPageLoaded(), "Sign In page is not loaded");
         signInPage.clickXButton();
-        Assert.assertTrue(staysPage.mainPageLoaded(), "Main page is loaded");
+        Assert.assertTrue(staysPage.mainPageLoaded(), "Main page is not loaded");
 
         // 2.Select Skopje as destination
         staysPage.clickDestinationButton();
-        Assert.assertTrue(destinationSearchPage.destinationSearchPageLoaded(), "Destination Search page is loaded");
+        Assert.assertTrue(destinationSearchPage.destinationSearchPageLoaded(), "Destination Search page is not loaded");
         destinationSearchPage.enterDestination("Skopje");
         destinationSearchPage.selectDestination("Skopje");
 
@@ -34,6 +34,20 @@ public class TestAndroidOne extends DriverSetup {
         staysPage.clickOnCalendarTwentyEightApril();
         staysPage.clickOnCalendarSelectDatesButton();
 
+        // 4.Select 2 rooms and 3 adults
+        staysPage.clickRoomPeopleButton();
+        staysPage.clickIncreaseRooms();
+        staysPage.clickIncreaseAdults();
+        staysPage.clickApplyButton();
+
+        // 5.Click Search
+        staysPage.clickSearchButton();
+        Assert.assertTrue(bookingSearchPage.bookingSearchPageLoaded(), "Booking Search page is not loaded");
+
+
+        // 6.On booking search screen validate expected destination and date is visible
+        Assert.assertTrue(bookingSearchPage.validateDestination("Skopje"), "Destination is not as expected");
+        Assert.assertTrue(bookingSearchPage.validateDate("Apr 24 - Apr 28"), "Date is not as expected");
 
     }
 }
