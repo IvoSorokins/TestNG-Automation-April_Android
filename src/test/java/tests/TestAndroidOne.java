@@ -59,5 +59,15 @@ public class TestAndroidOne extends DriverSetup {
 
         // 9.Click on Saved tab
 
+
+
+        // 10. Validate property is shown in Saved tab.
+        // 11. Go back to the search page.
+        // 12. Click on Sign in tab and validate that user is not logged in.
+        // 13. Scroll down to and click Settings.
+        // 14. Click Currency.
+        // 15. Change Currency to Euro.
+        // 16. Validate that Settings Currency is changed now to Euro.
+        // 17. Click on Privacy Policy and validate that Privacy and Cookies policy is open.
     }
 }
