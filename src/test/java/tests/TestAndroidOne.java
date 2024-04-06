@@ -54,6 +54,10 @@ public class TestAndroidOne extends DriverSetup {
         bookingSearchPage.clickHeartButton();
 
         // 8.Go back to the search page
+        bookingSearchPage.clickBackButton();
+        Assert.assertTrue(mainSearchPage.mainSearchPageLoaded(), "Main Search page is not loaded");
+
+        // 9.Click on Saved tab
 
     }
 }

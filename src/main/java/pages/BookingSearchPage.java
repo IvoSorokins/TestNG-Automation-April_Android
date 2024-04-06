@@ -23,6 +23,12 @@ public class BookingSearchPage {
     @AndroidFindBy(id = "com.booking:id/searchbox_dates")
     private RemoteWebElement searchDate;
 
+    @AndroidFindBy(xpath = "//android.widget.ImageView[1]")
+    private RemoteWebElement heartButton;
+
+    @AndroidFindBy(accessibility = "Navigate up")
+    private RemoteWebElement backButton;
+
     public BookingSearchPage(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
