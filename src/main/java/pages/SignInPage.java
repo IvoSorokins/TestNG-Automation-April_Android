@@ -19,6 +19,9 @@ public class SignInPage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Sign in or create account\"]")
     private RemoteWebElement signInOrCreateAccount;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Settings\"]")
+    private RemoteWebElement settingsOption;
+
     public SignInPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -31,6 +34,10 @@ public class SignInPage {
 
     @Step("Validate that user is not logged in, Sign in or Create account displayed")
     public boolean validateSignInOrCreateAccount(){
-        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(signInOrCreateAccount)).isDisplayed();}
+        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(signInOrCreateAccount)).isDisplayed();
+    }
+
+    @Step("Clicked on Setting Option")
+    public void clickSettingsOption(){clickSettingsOption();}
 
 }

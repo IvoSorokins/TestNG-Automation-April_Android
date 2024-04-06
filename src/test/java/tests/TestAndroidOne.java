@@ -76,7 +76,11 @@ public class TestAndroidOne extends DriverSetup {
         Assert.assertTrue(signInPage.validateSignInOrCreateAccount(), "User is not Sign Out");
 
         // 13. Scroll down to and click Settings.
+        helpers.swipeVertically(driver, Helpers.Directions.UP);
+        signInPage.clickSettingsOption();
+
         // 14. Click Currency.
+
         // 15. Change Currency to Euro.
         // 16. Validate that Settings Currency is changed now to Euro.
         // 17. Click on Privacy Policy and validate that Privacy and Cookies policy is open.
