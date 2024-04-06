@@ -9,10 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.GlobalVariables;
+import utils.Helpers;
 
 public class MainSearchPage {
 
     protected AndroidDriver driver;
+    protected Helpers helpers;
 
     // Accommodation Box Elements
     @AndroidFindBy(accessibility = "Accommodation search box")
@@ -32,6 +34,13 @@ public class MainSearchPage {
 
 
     // Calendar Slider Elements
+
+    @AndroidFindBy(accessibility = "17 April 2024")
+    private RemoteWebElement calendarSeventeenApril;
+
+    @AndroidFindBy(accessibility = "03 April 2024")
+    private RemoteWebElement calendarThirdApril;
+
     @AndroidFindBy(accessibility = "24 April 2024")
     private RemoteWebElement calendarTwentyFourthApril;
 
@@ -55,6 +64,7 @@ public class MainSearchPage {
 
     public MainSearchPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
+        this.helpers = new Helpers();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
@@ -80,13 +90,17 @@ public class MainSearchPage {
 
 
     // Actions with Date Slider
+
+    @Step("Scrolled down Calendar")
+    public void scrolledDownCalendar(){helpers.scrollFromElementToElement(driver,calendarSeventeenApril,calendarThirdApril);}
+
     @Step("Clicked on 24th April")
     public void clickOnCalendarTwentyFourthApril(){calendarTwentyFourthApril.click();}
 
     @Step("Clicked on 28th April")
     public void clickOnCalendarTwentyEightApril(){calendarTwentyEightApril.click();}
 
-    @Step("Clicked on 24th April ")
+    @Step("Clicked on Select Dates")
     public void clickOnCalendarSelectDatesButton(){calendarSelectDatesButton.click();}
 
 
@@ -99,4 +113,3 @@ public class MainSearchPage {
     public void clickApplyButton () {applyButton.click();}
 
 }
-

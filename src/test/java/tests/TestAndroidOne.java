@@ -31,6 +31,7 @@ public class TestAndroidOne extends DriverSetup {
         Assert.assertTrue(mainSearchPage.mainSearchPageWithSliderLoaded(), "Main Search page with slider is not loaded");
 
         // 3.Select 24 - 28 April as date
+        mainSearchPage.scrolledDownCalendar();
         mainSearchPage.clickOnCalendarTwentyFourthApril();
         mainSearchPage.clickOnCalendarTwentyEightApril();
         mainSearchPage.clickOnCalendarSelectDatesButton();
