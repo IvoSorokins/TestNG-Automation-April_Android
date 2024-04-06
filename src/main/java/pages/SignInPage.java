@@ -30,6 +30,6 @@ public class SignInPage {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(signInTitle)).isDisplayed();
     }
 
-    @Step("Click on X Button to continue without sign in")
+    @Step("Clicked on X Button")
     public void clickXButton(){xbutton.click();}
 }

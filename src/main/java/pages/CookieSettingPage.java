@@ -32,7 +32,7 @@ public class CookieSettingPage {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(cookieTitle)).isDisplayed();
     }
 
-    @Step("Click on the Accept button to confirm cookie settings")
+    @Step("Clicked on the Accept button")
     public void clickAcceptButton(){acceptButton.click();}
 
 }
