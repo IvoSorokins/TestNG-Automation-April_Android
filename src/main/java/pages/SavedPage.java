@@ -23,6 +23,10 @@ public class SavedPage {
     @AndroidFindBy(xpath = "//androidx.compose.ui.platform.ComposeView//android.view.View[5]")
     private RemoteWebElement firstSavedPropertyCard;
 
+    @AndroidFindBy(accessibility = "Navigate up")
+    private RemoteWebElement goBackButton;
+
+
     public SavedPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -41,6 +45,9 @@ public class SavedPage {
     public boolean propertyCardShown() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(firstSavedPropertyCard)).isDisplayed();
     }
+
+    @Step("Navigated Back")
+    public void clickBack(){goBackButton.click();}
 
 
 }
