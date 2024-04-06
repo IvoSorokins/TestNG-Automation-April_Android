@@ -65,6 +65,10 @@ public class TestAndroidOne extends DriverSetup {
         Assert.assertTrue(savedPage.propertyImageShown()&&savedPage.propertyCardShown(),"Property is not loaded on Saved Page");
 
         // 11. Go back to the search page.
+        savedPage.clickBack();
+        Assert.assertTrue(mainSearchPage.mainSearchPageLoaded(), "Main Search page is not loaded");
+
+
         // 12. Click on Sign in tab and validate that user is not logged in.
         // 13. Scroll down to and click Settings.
         // 14. Click Currency.
