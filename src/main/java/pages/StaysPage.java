@@ -21,9 +21,6 @@ public class StaysPage {
     @AndroidFindBy(xpath = "(//android.widget.Button)[1]\n")
     private RemoteWebElement destinationButton;
 
-    @AndroidFindBy(xpath = "//android.widget.Button[2]")
-    private RemoteWebElement dateButton;
-
     @AndroidFindBy(xpath = "//android.widget.Button[3]")
     private RemoteWebElement roomPeopleButton;
 
@@ -67,8 +64,6 @@ public class StaysPage {
     @Step("Click on 'Enter your destination' on Accommodation Box")
     public void clickDestinationButton(){destinationButton.click();}
 
-    @Step("Clicked on Date Button on Accommodation Box")
-    public void clickDateButton(){dateButton.click();}
 
     @Step("Clicked on Room and People Button on Accommodation Box")
     public void clickRoomPeopleButton(){roomPeopleButton.click();}

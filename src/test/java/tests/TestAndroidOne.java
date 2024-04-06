@@ -30,7 +30,6 @@ public class TestAndroidOne extends DriverSetup {
         destinationSearchPage.selectDestination("Skopje");
 
         // 3.Select 24 - 28 April as date
-        staysPage.clickDateButton();
         staysPage.clickOnCalendarTwentyFourthApril();
         staysPage.clickOnCalendarTwentyEightApril();
         staysPage.clickOnCalendarSelectDatesButton();
