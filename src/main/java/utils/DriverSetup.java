@@ -1,5 +1,6 @@
 package utils;
 
+import components.BottomNavigationBar;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 
@@ -36,6 +37,7 @@ public class DriverSetup extends ConfigReader {
     protected MainSearchPage mainSearchPage;
     protected DestinationSearchPage destinationSearchPage;
     protected BookingSearchPage bookingSearchPage;
+    protected BottomNavigationBar bottomNavigationBar;
 
     /**
      * Sets up the Appium driver before each test method
@@ -75,6 +77,7 @@ public class DriverSetup extends ConfigReader {
         mainSearchPage = new MainSearchPage(driver);
         destinationSearchPage = new DestinationSearchPage(driver);
         bookingSearchPage = new BookingSearchPage(driver);
+        bottomNavigationBar = new BottomNavigationBar(driver);
     }
 
     /**
