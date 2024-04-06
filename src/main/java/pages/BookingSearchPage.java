@@ -48,4 +48,11 @@ public class BookingSearchPage {
         String actualDate = searchDate.getText();
         return actualDate.equals(expectedDate);
     }
+
+    @Step("Clicked Save button (heart)")
+    public void clickHeartButton(){heartButton.click();}
+
+    @Step("Clicked on Back button")
+    public void clickBackButton(){backButton.click();}
+
 }
