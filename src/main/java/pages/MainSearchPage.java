@@ -18,6 +18,9 @@ public class MainSearchPage {
     @AndroidFindBy(accessibility = "Accommodation search box")
     private RemoteWebElement accommodationBox;
 
+    @AndroidFindBy(id = "com.booking:id/facet_with_bottom_sheet_header_content")
+    private RemoteWebElement slider;
+
     @AndroidFindBy(xpath = "(//android.widget.Button)[1]\n")
     private RemoteWebElement destinationButton;
 
@@ -58,6 +61,10 @@ public class MainSearchPage {
     @Step("Stays Page is loaded")
     public boolean mainPageLoaded() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(accommodationBox)).isDisplayed();
+    }
+    @Step("Main Search Page with slider is loaded")
+    public boolean mainSearchPageWithSliderLoaded(){
+        return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(slider)).isDisplayed();
     }
 
     // Actions with Accommodation Box Elements
