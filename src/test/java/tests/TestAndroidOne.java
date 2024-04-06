@@ -59,10 +59,11 @@ public class TestAndroidOne extends DriverSetup {
 
         // 9.Click on Saved tab
         bottomNavigationBar.clickSavedButton();
-        savedPage.savedPageLoaded();
-
 
         // 10. Validate property is shown in Saved tab.
+        savedPage.savedPageLoaded(); // Also Validates that Title is visible, page not empty
+        Assert.assertTrue(savedPage.propertyImageShown()&&savedPage.propertyCardShown(),"Property is not loaded on Saved Page");
+
         // 11. Go back to the search page.
         // 12. Click on Sign in tab and validate that user is not logged in.
         // 13. Scroll down to and click Settings.
