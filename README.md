@@ -13,7 +13,7 @@ This README file provides a description of the TestNG automation project for bot
 7. Click on Save button (heart) on one of the listed properties.
 8. Go back to the search page.
 9. Click on Saved tab.
-10. Validate property is shown in Saved tab.
+10. Validate property is shown in Saved page.
 11. Go back to the search page.
 12. Click on Sign in tab and validate that user is not logged in.
 13. Scroll down to and click Settings.
