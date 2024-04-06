@@ -21,33 +21,38 @@ public class TestAndroidOne extends DriverSetup {
         cookieSettingPage.clickAcceptButton();
         Assert.assertTrue(signInPage.signInPageLoaded(), "Sign In page is not loaded");
         signInPage.clickXButton();
-        Assert.assertTrue(staysPage.mainPageLoaded(), "Main page is not loaded");
+        Assert.assertTrue(mainSearchPage.mainPageLoaded(), "Main page is not loaded");
 
         // 2.Select Skopje as destination
-        staysPage.clickDestinationButton();
+        mainSearchPage.clickDestinationButton();
         Assert.assertTrue(destinationSearchPage.destinationSearchPageLoaded(), "Destination Search page is not loaded");
         destinationSearchPage.enterDestination("Skopje");
         destinationSearchPage.selectDestination("Skopje");
 
         // 3.Select 24 - 28 April as date
-        staysPage.clickOnCalendarTwentyFourthApril();
-        staysPage.clickOnCalendarTwentyEightApril();
-        staysPage.clickOnCalendarSelectDatesButton();
+        mainSearchPage.clickOnCalendarTwentyFourthApril();
+        mainSearchPage.clickOnCalendarTwentyEightApril();
+        mainSearchPage.clickOnCalendarSelectDatesButton();
 
         // 4.Select 2 rooms and 3 adults
-        staysPage.clickRoomPeopleButton();
-        staysPage.clickIncreaseRooms();
-        staysPage.clickIncreaseAdults();
-        staysPage.clickApplyButton();
+        mainSearchPage.clickRoomPeopleButton();
+        mainSearchPage.clickIncreaseRooms();
+        mainSearchPage.clickIncreaseAdults();
+        mainSearchPage.clickApplyButton();
 
         // 5.Click Search
-        staysPage.clickSearchButton();
+        mainSearchPage.clickSearchButton();
         Assert.assertTrue(bookingSearchPage.bookingSearchPageLoaded(), "Booking Search page is not loaded");
 
 
         // 6.On booking search screen validate expected destination and date is visible
         Assert.assertTrue(bookingSearchPage.validateDestination("Skopje"), "Destination is not as expected");
         Assert.assertTrue(bookingSearchPage.validateDate("Apr 24 - Apr 28"), "Date is not as expected");
+
+        // 7.Click on Save button (heart) on one of the listed property
+        bookingSearchPage.clickHeartButton();
+
+        // 8.Go back to the search page
 
     }
 }

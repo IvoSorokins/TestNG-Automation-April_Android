@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.GlobalVariables;
 
-public class StaysPage {
+public class MainSearchPage {
 
     protected AndroidDriver driver;
 
@@ -50,7 +50,7 @@ public class StaysPage {
     private RemoteWebElement applyButton;
 
 
-    public StaysPage(io.appium.java_client.android.AndroidDriver driver) {
+    public MainSearchPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
