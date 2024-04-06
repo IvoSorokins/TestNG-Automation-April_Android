@@ -61,7 +61,8 @@ public class Helpers {
     }
 
     /**
-     * Scrolls to an element on the iOS device by performing vertical swipes
+     * Scrolls to an element on the device by performing vertical swipes
+     * If the element is not visible, it will perform vertical swipes for the specified number of times
      *
      * @param driver     Driver instance
      * @param el         The WebElement to scroll to
@@ -113,5 +114,18 @@ public class Helpers {
         for(int i = 0; i< clicks; i++){
             element.click();
         }
+    }
+
+    public void scrollFromElementToElement(AndroidDriver driver, WebElement fromElement, WebElement toElement) {
+        Point fromLocation = getElementCenter(fromElement);
+        Point toLocation = getElementCenter(toElement);
+
+        Sequence swipe = new Sequence(FINGER, 0);
+        swipe.addAction(FINGER.createPointerMove(ZERO, viewport(), fromLocation.x, fromLocation.y));
+        swipe.addAction(FINGER.createPointerDown(LEFT.asArg()));
+        swipe.addAction(FINGER.createPointerMove(ofMillis(1000), viewport(), toLocation.x, toLocation.y));
+        swipe.addAction(FINGER.createPointerUp(LEFT.asArg()));
+
+        driver.perform(List.of(swipe));
     }
 }
