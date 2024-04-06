@@ -58,7 +58,8 @@ public class TestAndroidOne extends DriverSetup {
         Assert.assertTrue(mainSearchPage.mainSearchPageLoaded(), "Main Search page is not loaded");
 
         // 9.Click on Saved tab
-
+        bottomNavigationBar.clickSavedButton();
+        savedPage.savedPageLoaded();
 
 
         // 10. Validate property is shown in Saved tab.
