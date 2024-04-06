@@ -33,9 +33,8 @@ public class DriverSetup extends ConfigReader {
 
     protected CookieSettingPage cookieSettingPage;
     protected SignInPage signInPage;
-    protected MainPage mainPage;
+    protected StaysPage staysPage;
     protected DestinationSearchPage destinationSearchPage;
-    protected  SelectDatePage selectDatePage;
 
     /**
      * Sets up the Appium driver before each test method
@@ -72,9 +71,8 @@ public class DriverSetup extends ConfigReader {
         // Initialize Pages here
         cookieSettingPage = new CookieSettingPage(driver);
         signInPage = new SignInPage(driver);
-        mainPage = new MainPage(driver);
+        staysPage = new StaysPage(driver);
         destinationSearchPage = new DestinationSearchPage(driver);
-        selectDatePage = new SelectDatePage(driver);
     }
 
     /**

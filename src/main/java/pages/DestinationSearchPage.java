@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.GlobalVariables;
 
+import java.util.List;
+
 public class DestinationSearchPage {
 
     protected AndroidDriver driver;
@@ -20,8 +22,8 @@ public class DestinationSearchPage {
     @AndroidFindBy(id = "com.booking:id/facet_with_bui_free_search_booking_header_toolbar_content")
     private RemoteWebElement headerSearchBarTextBox;
 
-    @AndroidFindBy(xpath = "//android.view.View/android.widget.TextView[@text=\"Skopje\"]")
-    private RemoteWebElement searchResult;
+    @AndroidFindBy(xpath = "//android.view.View/android.widget.TextView")
+    private List<RemoteWebElement> searchResults;
 
     public DestinationSearchPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
@@ -33,15 +35,21 @@ public class DestinationSearchPage {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(headerSearchBar)).isDisplayed();
     }
 
-    @Step("Entered destination into search bar")
-    public void enterDestination(String destination){
+    @Step("Entered specified destination: '{destination}' ")
+    public void enterDestination(String destination) {
         headerSearchBarTextBox.sendKeys(destination);
     }
 
-    @Step("Click on Search Results")
-    public void clickSearchResults(){
-        searchResult.click();
+    @Step("Tapped on the result with the specified destination: '{destination}'")
+    public void selectDestination(String destination) {
+        // Iterate through each search result
+        for (RemoteWebElement result : searchResults) {
+            // Check if the result text matches the provided destination
+            if (result.getText().trim().equals(destination)) {
+                // If a match is found, click on the result
+                result.click();
+                break;
+            }
+        }
     }
-
-
 }
