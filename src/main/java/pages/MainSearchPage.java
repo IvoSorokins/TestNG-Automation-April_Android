@@ -58,8 +58,8 @@ public class MainSearchPage {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @Step("Stays Page is loaded")
-    public boolean mainPageLoaded() {
+    @Step("Main Search Page is loaded")
+    public boolean mainSearchPageLoaded() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(accommodationBox)).isDisplayed();
     }
     @Step("Main Search Page with slider is loaded")
