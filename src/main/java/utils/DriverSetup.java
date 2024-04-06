@@ -60,7 +60,6 @@ public class DriverSetup extends ConfigReader {
         capabilities.setCapability(UiAutomator2Options.FULL_RESET_OPTION, true);
         capabilities.setCapability(UiAutomator2Options.AUTO_GRANT_PERMISSIONS_OPTION, true);
         capabilities.setCapability("appium:disableIdLocatorAutocompletion", true);
-        capabilities.setCapability(UiAutomator2Options.AUTO_GRANT_PERMISSIONS_OPTION, true);
 
         try {
             driver = new AndroidDriver(new URI(GlobalVariables.localAppiumServerUrl).toURL(), capabilities);
