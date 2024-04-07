@@ -46,7 +46,6 @@ public class TestAndroidOne extends DriverSetup {
         mainSearchPage.clickSearchButton();
         Assert.assertTrue(bookingSearchPage.bookingSearchPageLoaded(), "Booking Search page is not loaded");
 
-
         // 6.On booking search screen validate expected destination and date is visible
         Assert.assertTrue(bookingSearchPage.validateDestination("Skopje"), "Destination is not as expected");
         Assert.assertTrue(bookingSearchPage.validateDate("Apr 24 - Apr 28"), "Date is not as expected");
@@ -84,10 +83,16 @@ public class TestAndroidOne extends DriverSetup {
         settingsPage.clickCurrency();
         Assert.assertTrue(currencyPage.currencyPageLoaded(), "Currency page is not loaded");
 
-
         // 15. Change Currency to Euro.
+        currencyPage.clickEuro();
+        Assert.assertTrue(settingsPage.settingsPageLoaded(), "Settings page is not loaded");
 
         // 16. Validate that Settings Currency is changed now to Euro.
+        Assert.assertTrue(settingsPage.settingsPageLoaded(), "Settings page is not loaded");
+        Assert.assertEquals(settingsPage.getCurrency(),"Euro","Setting is not changed correctly");
+
         // 17. Click on Privacy Policy and validate that Privacy and Cookies policy is open.
+        settingsPage.clickPrivacyPolicySetting();
+        Assert.assertTrue(privacyPolicyPage.privacyPolicyPageLoaded(),"Privacy Policy and Cookies policy page is not loaded");
     }
 }

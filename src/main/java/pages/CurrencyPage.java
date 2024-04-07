@@ -17,6 +17,9 @@ public class CurrencyPage {
     @AndroidFindBy(xpath = "//android.widget.EditText/android.widget.TextView[contains(@text, 'Search for currency')]")
     private RemoteWebElement currencySearchBox;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Euro\"]")
+    private RemoteWebElement euroButton;
+
     public CurrencyPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -26,4 +29,7 @@ public class CurrencyPage {
     public boolean currencyPageLoaded() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(currencySearchBox)).isDisplayed();
     }
+
+    @Step("Clicked on Euro")
+    public void clickEuro(){euroButton.click();}
 }
