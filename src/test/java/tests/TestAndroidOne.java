@@ -75,7 +75,7 @@ public class TestAndroidOne extends DriverSetup {
         Assert.assertTrue(signInPage.validateSignInOrCreateAccount(), "User is not Sign Out");
 
         // 13. Scroll down to and click Settings.
-        helpers.swipeVertically(driver, Helpers.Directions.UP);
+        helpers.swipeVertically(driver, Helpers.Directions.UP,1);
         signInPage.clickSettingsOption();
         Assert.assertTrue(settingsPage.settingsPageLoaded(), "Settings page is not loaded");
 
