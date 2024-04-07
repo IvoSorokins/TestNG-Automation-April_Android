@@ -7,12 +7,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.DriverSetup;
 
+
+@Epic("Android Tests")
+@Feature("Android Test 1")
 public class TestAndroidTwo extends DriverSetup {
 
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Covering Test case for Android Two scenarios")
+    @Description("Verify Genius Levels, Car rental and it's settings functionality")
     @Test(testName="AndroidTwo")
-    public void testAndroidTwo(){
+    public void testTwo(){
 
         Assert.assertTrue(cookieSettingPage.cookieSettingPageLoaded(), "Cookie Setting page is not loaded");
     }
