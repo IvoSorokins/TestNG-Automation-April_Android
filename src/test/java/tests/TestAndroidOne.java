@@ -12,9 +12,9 @@ import utils.Helpers;
 public class TestAndroidOne extends DriverSetup {
 
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Steps include navigating through initial screens, selecting a destination, and verifying user login status")
-    @Test(testName="Start the Booking application and continue without sign in")
-    public void startApplicationWithoutSignInTest() {
+    @Description("Verify user login status and perform actions with properties, including navigating through initial screens and selecting a destination")
+    @Test(testName="Verify Login Status and Property Actions")
+    public void testOne() {
 
         // 1.Start the Booking application and continue without sign in
         Assert.assertTrue(cookieSettingPage.cookieSettingPageLoaded(), "Cookie Setting page is not loaded");
