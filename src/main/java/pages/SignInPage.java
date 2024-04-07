@@ -22,6 +22,9 @@ public class SignInPage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Settings\"]")
     private RemoteWebElement settingsOption;
 
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Genius loyalty program\"]")
+    private RemoteWebElement geniusLoyaltySetting;
+
     public SignInPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -40,4 +43,6 @@ public class SignInPage {
     @Step("Clicked on Setting Option")
     public void clickSettingsOption(){clickSettingsOption();}
 
+    @Step("Clicked on Genius Loyalty Program")
+    public void clickGeniusLoyaltySetting(){geniusLoyaltySetting.click();}
 }
