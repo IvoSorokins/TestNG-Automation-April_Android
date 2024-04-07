@@ -39,7 +39,7 @@ public class Helpers {
      * @param driver    Driver instance
      * @param direction The direction of the swipe (UP or DOWN)
      */
-    public void swipeVertically(AndroidDriver driver, Directions direction) {
+    public void swipeVertically(AndroidDriver driver, Directions direction,int swipeCount) {
         int startX = driver.manage().window().getSize().getWidth() / 2;
         int startY = driver.manage().window().getSize().getHeight() / 2;
 
@@ -51,29 +51,15 @@ public class Helpers {
             default -> throw new IllegalArgumentException("Invalid direction selected: " + direction);
         }
 
-        Sequence swipe = new Sequence(FINGER, 0);
+        for (int i = 0; i < swipeCount; i++) {
+            Sequence swipe = new Sequence(FINGER, 0);
 
-        swipe.addAction(FINGER.createPointerMove(ZERO, viewport(), startX, startY));
-        swipe.addAction(FINGER.createPointerDown(LEFT.asArg()));
-        swipe.addAction(FINGER.createPointerMove(ofMillis(1000), viewport(), startX, endY));
-        swipe.addAction(FINGER.createPointerUp(LEFT.asArg()));
-        driver.perform(List.of(swipe));
-    }
-
-    /**
-     * Scrolls to an element on the device by performing vertical swipes
-     * If the element is not visible, it will perform vertical swipes for the specified number of times
-     *
-     * @param driver     Driver instance
-     * @param el         The WebElement to scroll to
-     * @param direction  The direction of the scroll (UP or DOWN)
-     * @param swipeCount The number of swipes to perform
-     */
-    public void scrollTo(AndroidDriver driver, WebElement el, Directions direction, int swipeCount) {
-        IntStream.range(0, swipeCount).forEach(obj -> {
-            if (!el.isDisplayed())
-                swipeVertically(driver, direction);
-        });
+            swipe.addAction(FINGER.createPointerMove(ZERO, viewport(), startX, startY));
+            swipe.addAction(FINGER.createPointerDown(LEFT.asArg()));
+            swipe.addAction(FINGER.createPointerMove(ofMillis(1000), viewport(), startX, endY));
+            swipe.addAction(FINGER.createPointerUp(LEFT.asArg()));
+            driver.perform(List.of(swipe));
+        }
     }
 
     /**
