@@ -4,7 +4,7 @@ import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.DriverSetup;
-import utils.Helpers;
+
 
 
 @Epic("Android Tests")
@@ -13,7 +13,7 @@ public class TestAndroidOne extends DriverSetup {
 
     @Severity(SeverityLevel.CRITICAL)
     @Description("Verify user login status and perform actions with properties, including navigating through initial screens and selecting a destination")
-    @Test(testName="Verify Login Status and Property Actions")
+    @Test(testName="AndroidOne")
     public void testOne() {
 
         // 1.Start the Booking application and continue without sign in
@@ -21,29 +21,29 @@ public class TestAndroidOne extends DriverSetup {
         cookieSettingPage.clickAcceptButton();
         Assert.assertTrue(welcomePage.welcomePageLoaded(), "Welcome page is not loaded");
         welcomePage.clickXButton();
-        Assert.assertTrue(mainSearchPage.mainSearchPageLoaded(), "Main Search page is not loaded");
+        Assert.assertTrue(staysPage.staysPageLoaded(), "Stays page is not loaded");
 
         // 2.Select Skopje as destination
-        mainSearchPage.clickDestinationButton();
+        staysPage.clickFirstAccommodationButton();
         Assert.assertTrue(destinationSearchPage.destinationSearchPageLoaded(), "Destination Search page is not loaded");
         destinationSearchPage.enterDestination("Skopje");
         destinationSearchPage.selectDestination("Skopje");
-        Assert.assertTrue(mainSearchPage.mainSearchPageWithSliderLoaded(), "Main Search page with slider is not loaded");
+        Assert.assertTrue(staysPage.mainSearchPageWithSliderLoaded(), "Stays page with slider is not loaded");
 
         // 3.Select 24 - 28 April as date
-        mainSearchPage.scrolledDownCalendar();
-        mainSearchPage.clickOnCalendarTwentyFourthApril();
-        mainSearchPage.clickOnCalendarTwentyEightApril();
-        mainSearchPage.clickOnCalendarSelectDatesButton();
+        staysPage.scrolledDownCalendar();
+        staysPage.clickOnCalendarTwentyFourthApril();
+        staysPage.clickOnCalendarTwentyEightApril();
+        staysPage.clickOnCalendarSelectDatesButton();
 
         // 4.Select 2 rooms and 3 adults
-        mainSearchPage.clickRoomPeopleButton();
-        mainSearchPage.clickIncreaseRooms();
-        mainSearchPage.clickIncreaseAdults();
-        mainSearchPage.clickApplyButton();
+        staysPage.clickRoomPeopleButton();
+        staysPage.clickIncreaseRooms();
+        staysPage.clickIncreaseAdults();
+        staysPage.clickApplyButton();
 
         // 5.Click Search
-        mainSearchPage.clickSearchButton();
+        staysPage.clickSearchButton();
         Assert.assertTrue(bookingSearchPage.bookingSearchPageLoaded(), "Booking Search page is not loaded");
 
         // 6.On booking search screen validate expected destination and date is visible
@@ -55,27 +55,28 @@ public class TestAndroidOne extends DriverSetup {
 
         // 8.Go back to the search page
         bookingSearchPage.clickBackButton();
-        Assert.assertTrue(mainSearchPage.mainSearchPageLoaded(), "Main Search page is not loaded");
+        Assert.assertTrue(staysPage.staysPageLoaded(), "Stays page is not loaded");
 
         // 9.Click on Saved tab
-        bottomNavigationBar.clickSavedButton();
+        staysPage.clickSavedButton();
 
         // 10. Validate property is shown in Saved tab.
-        savedPage.savedPageLoaded(); // Also Validates that Title is visible, page not empty
-        Assert.assertTrue(savedPage.propertyImageShown()&&savedPage.propertyCardShown(),"Property is not loaded on Saved Page");
+        myNextTripPage.myNextTripPageLoaded(); // Also Validates that Title is visible, page not empty
+        Assert.assertTrue(myNextTripPage.propertyImageShown()&& myNextTripPage.propertyCardShown(),"Property page is not loaded on Saved Page");
 
         // 11. Go back to the search page.
-        savedPage.clickBack();
-        bottomNavigationBar.clickSearchButton();
-        Assert.assertTrue(mainSearchPage.mainSearchPageLoaded(), "Main Search page is not loaded");
+        myNextTripPage.clickBack();
+        Assert.assertTrue(savedPage.savedPageLoaded(),"Stays page is not loaded");
+        savedPage.clickSearchButton();
+        Assert.assertTrue(staysPage.staysPageLoaded(), "Stays page is not loaded");
 
         // 12. Click on Sign in tab and validate that user is not logged in.
-        bottomNavigationBar.clickSignInButton();
+        staysPage.clickSignInButton();
         Assert.assertTrue(signInPage.signInPageLoaded(), "Sign In page is not loaded");
         Assert.assertTrue(signInPage.validateSignInOrCreateAccount(), "User is not Sign Out");
 
         // 13. Scroll down to and click Settings.
-        helpers.swipeVertically(driver, Helpers.Directions.UP,1);
+        signInPage.swipeDownToSettings();
         signInPage.clickSettingsOption();
         Assert.assertTrue(settingsPage.settingsPageLoaded(), "Settings page is not loaded");
 
@@ -89,7 +90,7 @@ public class TestAndroidOne extends DriverSetup {
 
         // 16. Validate that Settings Currency is changed now to Euro.
         Assert.assertTrue(settingsPage.settingsPageLoaded(), "Settings page is not loaded");
-        Assert.assertEquals(settingsPage.getCurrency(),"Euro","Setting is not changed correctly");
+        Assert.assertEquals(settingsPage.getCurrency(),"Euro (€)","Setting is not changed correctly");
 
         // 17. Click on Privacy Policy and validate that Privacy and Cookies policy is open.
         settingsPage.clickPrivacyPolicySetting();

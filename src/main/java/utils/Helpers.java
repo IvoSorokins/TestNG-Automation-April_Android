@@ -9,9 +9,7 @@ import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.remote.RemoteWebElement;
 
-
 import java.util.List;
-import java.util.stream.IntStream;
 
 import static java.time.Duration.*;
 import static org.openqa.selenium.interactions.PointerInput.Kind.TOUCH;
@@ -29,6 +27,8 @@ public class Helpers {
     public enum Directions {
         UP,
         DOWN,
+        LEFT,
+        RIGHT
     }
 
     private final PointerInput FINGER = new PointerInput(TOUCH, "finger");
@@ -39,16 +39,39 @@ public class Helpers {
      * @param driver    Driver instance
      * @param direction The direction of the swipe (UP or DOWN)
      */
-    public void swipeVertically(AndroidDriver driver, Directions direction,int swipeCount) {
-        int startX = driver.manage().window().getSize().getWidth() / 2;
-        int startY = driver.manage().window().getSize().getHeight() / 2;
+    public void swipe(AndroidDriver driver, Directions direction, int swipeCount) {
+        Dimension size = driver.manage().window().getSize();
 
-        int endY;
+        int startX, startY, endX, endY;
+
 
         switch (direction) {
-            case UP -> endY = (int) (driver.manage().window().getSize().getHeight() * 0.2);
-            case DOWN -> endY = (int) (driver.manage().window().getSize().getHeight() * 0.8);
-            default -> throw new IllegalArgumentException("Invalid direction selected: " + direction);
+            case UP:
+                startX = size.getWidth() / 2;
+                startY = (int) (size.getHeight() * 0.8);
+                endX = startX;
+                endY = (int) (size.getHeight() * 0.2);
+                break;
+            case DOWN:
+                startX = size.getWidth() / 2;
+                startY = (int) (size.getHeight() * 0.2);
+                endX = startX;
+                endY = (int) (size.getHeight() * 0.8);
+                break;
+            case LEFT:
+                startX = (int) (size.getWidth() * 0.8);
+                startY = size.getHeight() / 2;
+                endX = (int) (size.getWidth() * 0.2);
+                endY = startY;
+                break;
+            case RIGHT:
+                startX = (int) (size.getWidth() * 0.2);
+                startY = size.getHeight() / 2;
+                endX = (int) (size.getWidth() * 0.8);
+                endY = startY;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid direction selected: " + direction);
         }
 
         for (int i = 0; i < swipeCount; i++) {
@@ -56,7 +79,7 @@ public class Helpers {
 
             swipe.addAction(FINGER.createPointerMove(ZERO, viewport(), startX, startY));
             swipe.addAction(FINGER.createPointerDown(LEFT.asArg()));
-            swipe.addAction(FINGER.createPointerMove(ofMillis(1000), viewport(), startX, endY));
+            swipe.addAction(FINGER.createPointerMove(ofMillis(1000), viewport(), endX, endY));
             swipe.addAction(FINGER.createPointerUp(LEFT.asArg()));
             driver.perform(List.of(swipe));
         }
@@ -113,5 +136,14 @@ public class Helpers {
         swipe.addAction(FINGER.createPointerUp(LEFT.asArg()));
 
         driver.perform(List.of(swipe));
+    }
+
+    public void wait(int seconds){
+        int mSeconds = seconds * 1000; // 1000 milliseconds = 1 seconds
+        try {
+            Thread.sleep(mSeconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -17,7 +17,7 @@ public class SettingsPage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Device settings\"]")
     private RemoteWebElement settingsTitle;
 
-    @AndroidFindBy(xpath = "(//android.view.View[1]/android.view.View[2])[1]")
+    @AndroidFindBy(xpath = "(//android.view.View[2]/android.widget.TextView)[2]")
     private RemoteWebElement currencySetting;
 
     @AndroidFindBy(xpath = "//android.view.View[9]")

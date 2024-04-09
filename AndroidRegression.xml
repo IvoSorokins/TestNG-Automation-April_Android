@@ -5,7 +5,7 @@
     <test verbose="2" name="Android Regression">
         <classes>
             <class name="tests.TestAndroidOne"/>
-<!--            <class name="tests.TestAndroidTwo"/>-->
+            <class name="tests.TestAndroidTwo"/>
         </classes>
     </test>
 </suite>

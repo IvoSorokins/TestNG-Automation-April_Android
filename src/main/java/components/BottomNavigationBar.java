@@ -21,20 +21,14 @@ public class BottomNavigationBar {
 
     @AndroidFindBy(accessibility = "Sign in")
     private RemoteWebElement signInButton;
+
     public BottomNavigationBar(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-
-    @Step("Clicked Search Button")
-    public void clickSearchButton(){searchButton.click();}
-
-    @Step("Clicked Saved Button")
-    public void clickSavedButton(){savedButton.click();}
-
-    @Step("Clicked Bookings Button")
-    public void clickBookingsButton(){bookingsButton.click();}
-
-    @Step("Clicked Sign In Button")
-    public void clickSignInButton(){signInButton.click();}
+    public RemoteWebElement getSearchButton() {return searchButton;}
+    public RemoteWebElement getSavedButton() {return savedButton;}
+    public RemoteWebElement getBookingsButton() {return bookingsButton;}
+    public RemoteWebElement getSignInButton() {return signInButton;}
 }
+

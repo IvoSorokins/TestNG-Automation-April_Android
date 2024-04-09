@@ -1,6 +1,8 @@
 package utils;
 
+import components.AccommodationBox;
 import components.BottomNavigationBar;
+import components.TopNavigationBar;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 
@@ -34,16 +36,22 @@ public class DriverSetup extends ConfigReader {
 
     protected CookieSettingPage cookieSettingPage;
     protected WelcomePage welcomePage;
-    protected MainSearchPage mainSearchPage;
+    protected StaysPage staysPage;
     protected DestinationSearchPage destinationSearchPage;
     protected BookingSearchPage bookingSearchPage;
-    protected BottomNavigationBar bottomNavigationBar;
-    protected SavedPage savedPage;
+    protected MyNextTripPage myNextTripPage;
     protected SignInPage signInPage;
     protected SettingsPage settingsPage;
     protected CurrencyPage currencyPage;
     protected PrivacyPolicyPage privacyPolicyPage;
     protected GeniusLoyaltyPage geniusLoyaltyPage;
+    protected GeniusLevelPage geniusLevelPage;
+    protected SavedPage savedPage;
+    protected CarRentalPage carRentalPage;
+    protected CarPickDropSearchPage carPickDropSearchPage;
+    protected CarRentalSearchPage carRentalSearchPage;
+    protected CarFilterPage carFilterPage;
+
 
     /**
      * Sets up the Appium driver before each test method
@@ -79,16 +87,21 @@ public class DriverSetup extends ConfigReader {
         // Initialize Pages here
         cookieSettingPage = new CookieSettingPage(driver);
         welcomePage = new WelcomePage(driver);
-        mainSearchPage = new MainSearchPage(driver);
+        staysPage = new StaysPage(driver);
         destinationSearchPage = new DestinationSearchPage(driver);
         bookingSearchPage = new BookingSearchPage(driver);
-        bottomNavigationBar = new BottomNavigationBar(driver);
-        savedPage = new SavedPage(driver);
+        myNextTripPage = new MyNextTripPage(driver);
         signInPage = new SignInPage(driver);
         settingsPage = new SettingsPage(driver);
         currencyPage = new CurrencyPage(driver);
         privacyPolicyPage = new PrivacyPolicyPage(driver);
         geniusLoyaltyPage = new GeniusLoyaltyPage(driver);
+        geniusLevelPage = new GeniusLevelPage(driver);
+        savedPage = new SavedPage(driver);
+        carRentalPage = new CarRentalPage(driver);
+        carPickDropSearchPage = new CarPickDropSearchPage(driver);
+        carFilterPage = new CarFilterPage(driver);
+        carRentalSearchPage = new CarRentalSearchPage(driver);
     }
 
     /**
