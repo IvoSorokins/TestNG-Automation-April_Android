@@ -22,10 +22,12 @@ public class CookieSettingPage {
     @AndroidFindBy(id = "com.booking:id/bt_accept")
     private RemoteWebElement acceptButton;
 
+
     public CookieSettingPage(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
+
 
     @Step("New Cookie Setting page is loaded")
     public boolean cookieSettingPageLoaded() {

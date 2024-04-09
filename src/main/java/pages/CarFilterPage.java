@@ -24,13 +24,14 @@ public class CarFilterPage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Show results\"]")
     private RemoteWebElement showResultsButton;
 
+
     public CarFilterPage(AndroidDriver driver) {
         this.driver = driver;
         this.helpers = new Helpers();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @Step("Car Rental Search  page is loaded")
+    @Step("Car Filter page is loaded")
     public boolean carFilterPageLoaded() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(filterByTitle)).isDisplayed();
     }

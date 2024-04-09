@@ -8,8 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 
 public class TopNavigationBar {
-
     protected AndroidDriver driver;
+
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Stays']")
     private RemoteWebElement staysOption;
 
@@ -27,6 +27,7 @@ public class TopNavigationBar {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
+    // Element Getters
     public RemoteWebElement getCarRentalOption(){return carRentalOption;}
     public RemoteWebElement getStaysOption(){return staysOption;}
     public RemoteWebElement getTaxiOption(){return taxiOption;}

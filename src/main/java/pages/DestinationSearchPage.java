@@ -25,10 +25,12 @@ public class DestinationSearchPage {
     @AndroidFindBy(xpath = "//android.view.View/android.widget.TextView")
     private List<RemoteWebElement> searchResults;
 
+
     public DestinationSearchPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
+
 
     @Step("Destination Search page is loaded")
     public boolean destinationSearchPageLoaded() {

@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.GlobalVariables;
 
 public class BookingSearchPage {
-
     protected AndroidDriver driver;
 
     @AndroidFindBy(id = "com.booking:id/sr_toolbar")
@@ -29,10 +28,12 @@ public class BookingSearchPage {
     @AndroidFindBy(accessibility = "Navigate up")
     private RemoteWebElement backButton;
 
+
     public BookingSearchPage(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
+
     @Step("Booking Search page is loaded")
     public boolean bookingSearchPageLoaded() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(searchBar)).isDisplayed();

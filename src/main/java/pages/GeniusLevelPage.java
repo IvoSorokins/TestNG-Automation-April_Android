@@ -31,7 +31,7 @@ public class GeniusLevelPage {
     }
 
 
-    @Step("Destination Search page is loaded")
+    @Step("Genius Level page is loaded")
     public boolean geniusLoyaltyPageLoaded() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(geniusLevelTitle)).isDisplayed();
     }

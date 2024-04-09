@@ -5,7 +5,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Step;
-import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,7 +23,7 @@ public class SavedPage {
         this.bottomNavigationBar = new BottomNavigationBar(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-    @Step("Privacy and Policy Page is loaded")
+    @Step("Saved Page is loaded")
     public boolean savedPageLoaded() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(savedDescription)).isDisplayed();
     }

@@ -25,11 +25,14 @@ public class GeniusLoyaltyPage {
 
     @AndroidFindBy(accessibility = "Navigate up")
     private RemoteWebElement backButton;
+
+
     public GeniusLoyaltyPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
         this.helpers = new Helpers();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
+
 
     @Step("Genius Loyalty page is loaded")
     public boolean geniusLoyaltyPageLoaded() {

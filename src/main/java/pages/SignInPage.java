@@ -46,6 +46,7 @@ public class SignInPage {
     public boolean validateSignInOrCreateAccount(){
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(signInOrCreateAccount)).isDisplayed();
     }
+
     @Step("Scrolled down to Settings")
     public void swipeDownToSettings(){helpers.swipe(driver, Helpers.Directions.UP,1);}
 

@@ -3,7 +3,6 @@ package components;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.qameta.allure.Step;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -26,6 +25,8 @@ public class BottomNavigationBar {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
+
+    // Element Getters
     public RemoteWebElement getSearchButton() {return searchButton;}
     public RemoteWebElement getSavedButton() {return savedButton;}
     public RemoteWebElement getBookingsButton() {return bookingsButton;}

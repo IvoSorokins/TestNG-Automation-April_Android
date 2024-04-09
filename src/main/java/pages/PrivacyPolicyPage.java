@@ -21,6 +21,7 @@ public class PrivacyPolicyPage {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
+
     @Step("Privacy and Policy Page is loaded")
     public boolean privacyPolicyPageLoaded() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(privacyTitle)).isDisplayed();

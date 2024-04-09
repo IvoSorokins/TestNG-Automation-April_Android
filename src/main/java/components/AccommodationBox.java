@@ -3,7 +3,6 @@ package components;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.qameta.allure.Step;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.PageFactory;
 
@@ -11,8 +10,6 @@ public class AccommodationBox{
     protected AndroidDriver driver;
 
     // Accommodation Box Elements
-
-
     @AndroidFindBy(id = "com.booking:id/calendar_week_days")
     private RemoteWebElement accommodationCalendarWeekDays;
 
@@ -37,6 +34,7 @@ public class AccommodationBox{
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Search\"])[1]")
     private RemoteWebElement searchButton;
 
+
     // Calendar Slider Elements
     @AndroidFindBy(accessibility = "17 April 2024")
     private RemoteWebElement calendarSeventeenApril;
@@ -60,11 +58,11 @@ public class AccommodationBox{
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
+    // Element Getters
     public RemoteWebElement getAccommodationCalendarWeekDays() {return accommodationCalendarWeekDays;}
     public RemoteWebElement getFirstAccommodationButton() {return firstAccommodationButton;}
     public RemoteWebElement getFourthAccommodationButton() {return fourthAccommodationButton;}
     public RemoteWebElement getThirdAccommodationButton() {return thirdAccommodationButton;}
-
     public RemoteWebElement getSixthAccommodationButton() {return sixthAccommodationButton;}
     public RemoteWebElement getSearchButton() {return searchButton;}
     public RemoteWebElement getCalendarSeventeenApril() {return calendarSeventeenApril;}

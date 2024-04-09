@@ -20,6 +20,7 @@ public class CurrencyPage {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Euro\"]")
     private RemoteWebElement euroButton;
 
+
     public CurrencyPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);

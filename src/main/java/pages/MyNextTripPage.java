@@ -36,6 +36,7 @@ public class MyNextTripPage {
     public boolean myNextTripPageLoaded() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(myNextTripTitle)).isDisplayed();
     }
+
     @Step("Validated property Image is shown in Saved tab")
     public boolean propertyImageShown() {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(firstSavedPropertyImage)).isDisplayed();
@@ -48,6 +49,5 @@ public class MyNextTripPage {
 
     @Step("Navigated Back")
     public void clickBack(){goBackButton.click();}
-
 
 }
