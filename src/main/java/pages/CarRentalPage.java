@@ -7,7 +7,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -128,6 +127,8 @@ public class CarRentalPage {
     }
 
     @Step("Clicked Search")
-    public void clickSearch(){accommodationBox.getSearchButton().click();}
+    public void clickSearch(){
+        helpers.wait(1); // Added wait because keyboard might sometimes get in a way because of device being slow
+        accommodationBox.getSearchButton().click();}
 
 }
