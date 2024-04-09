@@ -33,12 +33,7 @@ public class Helpers {
 
     private final PointerInput FINGER = new PointerInput(TOUCH, "finger");
 
-    /**
-     * Performs a vertical swipe action on the Android device
-     *
-     * @param driver    Driver instance
-     * @param direction The direction of the swipe (UP or DOWN)
-     */
+
     public void swipe(AndroidDriver driver, Directions direction, int swipeCount) {
         Dimension size = driver.manage().window().getSize();
 
