@@ -119,6 +119,8 @@ public class CarRentalPage {
 
         // Tap on the coordinates of "Done"
         tapOnCoordinates(940, 1730); // Update coordinates according to your UI
+
+        helpers.wait(1); // Added wait because keyboard might sometimes get in a way because of device being slow
     }
     private void tapOnCoordinates(int x, int y) {
         new TouchAction(driver)
@@ -128,7 +130,6 @@ public class CarRentalPage {
 
     @Step("Clicked Search")
     public void clickSearch(){
-        helpers.wait(1); // Added wait because keyboard might sometimes get in a way because of device being slow
         accommodationBox.getSearchButton().click();}
 
 }
