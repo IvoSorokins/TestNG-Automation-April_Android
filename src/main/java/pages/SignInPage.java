@@ -12,10 +12,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.GlobalVariables;
 import utils.Helpers;
 
-public class SignInPage {
+public class SignInPage extends Helpers {
     protected AndroidDriver driver;
-
-    protected Helpers helpers;
     protected BottomNavigationBar bottomNavigationBar;
 
     @AndroidFindBy(id = "com.booking:id/facet_profile_header_sign_in_warning")
@@ -32,7 +30,6 @@ public class SignInPage {
 
     public SignInPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
-        this.helpers = new Helpers();
         this.bottomNavigationBar = new BottomNavigationBar(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
@@ -48,7 +45,7 @@ public class SignInPage {
     }
 
     @Step("Scrolled down to Settings")
-    public void swipeDownToSettings(){helpers.swipe(driver, Helpers.Directions.UP,1);}
+    public void swipeDownToSettings(){swipe(driver, Directions.UP,1);}
 
     @Step("Clicked on Setting Option")
     public void clickSettingsOption(){settingsOption.click();}

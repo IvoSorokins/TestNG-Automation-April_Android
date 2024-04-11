@@ -11,9 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.GlobalVariables;
 import utils.Helpers;
 
-public class CarFilterPage {
+public class CarFilterPage extends Helpers {
     protected AndroidDriver driver;
-    protected Helpers helpers;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Automatic\"]")
     private RemoteWebElement automaticFilter;
@@ -27,7 +26,6 @@ public class CarFilterPage {
 
     public CarFilterPage(AndroidDriver driver) {
         this.driver = driver;
-        this.helpers = new Helpers();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
@@ -38,7 +36,7 @@ public class CarFilterPage {
 
     @Step("Scrolled to Automatic Filter")
     public void scrollToAutomaticFilter(){
-        helpers.swipe(driver, Helpers.Directions.UP,1);
+        swipe(driver, Directions.UP,1);
     }
     @Step("Clicked Automatic Filter")
     public void clickAutomaticFilter(){

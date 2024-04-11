@@ -12,10 +12,9 @@ import utils.GlobalVariables;
 import utils.Helpers;
 
 
-public class GeniusLoyaltyPage {
+public class GeniusLoyaltyPage extends Helpers {
 
     protected AndroidDriver driver;
-    protected Helpers helpers;
 
     @AndroidFindBy(xpath = "(//android.widget.TextView[@text=\"Sign up – it's free\"])[2]")
     private RemoteWebElement signUpButton;
@@ -29,7 +28,6 @@ public class GeniusLoyaltyPage {
 
     public GeniusLoyaltyPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
-        this.helpers = new Helpers();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
@@ -47,7 +45,7 @@ public class GeniusLoyaltyPage {
     public void clickedGeniusLevel(){aboutGeniusLevels.click();}
 
     @Step("Swiped Genius Level into view")
-    public void swipeGeniusLevelIntoView() {helpers.swipe(driver, Helpers.Directions.UP,3);}
+    public void swipeGeniusLevelIntoView() {swipe(driver, Directions.UP,3);}
 
     @Step("Clicked Back")
     public void clickBackButton(){backButton.click();}

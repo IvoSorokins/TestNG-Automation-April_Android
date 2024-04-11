@@ -14,11 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.GlobalVariables;
 import utils.Helpers;
 
-public class StaysPage {
-
+public class StaysPage extends Helpers {
     protected AndroidDriver driver;
-
-    protected Helpers helpers;
 
     // Components
     protected AccommodationBox accommodationBox;
@@ -44,7 +41,6 @@ public class StaysPage {
 
     public StaysPage(io.appium.java_client.android.AndroidDriver driver) {
         this.driver = driver;
-        this.helpers = new Helpers();
         this.accommodationBox = new AccommodationBox(driver);
         this.bottomNavigationBar = new BottomNavigationBar(driver);
         this.topNavigationBar = new TopNavigationBar(driver);
@@ -74,11 +70,10 @@ public class StaysPage {
     public void clickSearchButton(){accommodationBox.getSearchButton().click();}
 
 
-
     // Actions with Date Slider
     @Step("Scrolled down Calendar")
     public void scrolledDownCalendar(){
-        helpers.scrollFromElementToElement(driver,
+        scrollFromElementToElement(driver,
                 accommodationBox.getCalendarSeventeenApril(),
                 accommodationBox.getCalendarThirdApril());
     }

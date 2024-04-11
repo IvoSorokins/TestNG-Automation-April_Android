@@ -14,9 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.GlobalVariables;
 import utils.Helpers;
 
-public class CarRentalPage {
+public class CarRentalPage extends Helpers {
     protected AndroidDriver driver;
-    protected Helpers helpers;
     protected AccommodationBox accommodationBox;
 
     @AndroidFindBy(accessibility = "Car rental search box")
@@ -46,7 +45,6 @@ public class CarRentalPage {
 
     public CarRentalPage(AndroidDriver driver) {
         this.driver = driver;
-        this.helpers = new Helpers();
         this.accommodationBox = new AccommodationBox(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
@@ -78,7 +76,7 @@ public class CarRentalPage {
     public void clickAccommodationDateButton(){accommodationBox.getThirdAccommodationButton().click();}
 
     @Step("Swiped down Calendar")
-    public void swipeDownCalendar(){helpers.scrollFromElementToElement(driver,
+    public void swipeDownCalendar(){scrollFromElementToElement(driver,
             accommodationBox.getCalendarSeventeenApril(),
             accommodationBox.getCalendarThirdApril());}
 
@@ -93,8 +91,8 @@ public class CarRentalPage {
 
     @Step("Scrolled to 8:15 AM time")
     public void swipeToPickUpTime(){
-        helpers.wait(1);
-        helpers.swipe(driver, Helpers.Directions.DOWN,1);
+        wait(1);
+        swipe(driver, Directions.DOWN,1);
     }
     @Step("Clicked 8:15 AM")
     public void clickPickUpTime(){pickUpTimeElement.click();}
@@ -111,7 +109,7 @@ public class CarRentalPage {
     @Step("Entered Drivers Age")
     public void enterDriversAge() {
         driversAgeButton.click();
-        helpers.wait(2);
+        wait(2);
 
         // Tap on the coordinates of number "2" twice
         tapOnCoordinates(420, 1250);
@@ -120,7 +118,7 @@ public class CarRentalPage {
         // Tap on the coordinates of "Done"
         tapOnCoordinates(940, 1730); // Update coordinates according to your UI
 
-        helpers.wait(1); // Added wait because keyboard might sometimes get in a way because of device being slow
+        wait(1); // Added wait because keyboard might sometimes get in a way because of device being slow
     }
     private void tapOnCoordinates(int x, int y) {
         new TouchAction(driver)
