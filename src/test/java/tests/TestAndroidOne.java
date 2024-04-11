@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import utils.DriverSetup;
 
 
-
 @Epic("Android Tests")
 @Feature("Android Test 1")
 public class TestAndroidOne extends DriverSetup {
@@ -28,7 +27,7 @@ public class TestAndroidOne extends DriverSetup {
         Assert.assertTrue(destinationSearchPage.destinationSearchPageLoaded(), "Destination Search page is not loaded");
         destinationSearchPage.enterDestination("Skopje");
         destinationSearchPage.selectDestination("Skopje");
-        Assert.assertTrue(staysPage.mainSearchPageWithSliderLoaded(), "Stays page with slider is not loaded");
+        Assert.assertTrue(staysPage.staysPageWithSliderLoaded(), "Stays page with slider is not loaded");
 
         // 3.Select 24 - 28 April as date
         staysPage.scrolledDownCalendar();

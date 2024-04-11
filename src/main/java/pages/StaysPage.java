@@ -53,7 +53,7 @@ public class StaysPage extends Helpers {
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(accommodationBoxElement)).isDisplayed();
     }
     @Step("Stays Page with slider is loaded")
-    public boolean mainSearchPageWithSliderLoaded(){
+    public boolean staysPageWithSliderLoaded(){
         return new WebDriverWait(driver, GlobalVariables.globalTimeout).until(ExpectedConditions.visibilityOf(accommodationBox.getAccommodationCalendarWeekDays())).isDisplayed();
     }
 
