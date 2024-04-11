@@ -52,7 +52,6 @@ public class AccommodationBox{
     private RemoteWebElement calendarTwentySeventhApril;
 
 
-
     public AccommodationBox(AndroidDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
